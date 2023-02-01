@@ -13,6 +13,12 @@
 		9940914B298A094C00DA0542 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99409149298A094C00DA0542 /* Main.storyboard */; };
 		9940914D298A094D00DA0542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9940914C298A094D00DA0542 /* Assets.xcassets */; };
 		99409150298A094D00DA0542 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9940914E298A094D00DA0542 /* LaunchScreen.storyboard */; };
+		99D38377298A1A7000425DD8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 99D38376298A1A7000425DD8 /* FirebaseFirestore */; };
+		99D3837A298A1AA900425DD8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 99D38379298A1AA900425DD8 /* FSCalendar */; };
+		99D3837D298A1AE900425DD8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 99D3837C298A1AE900425DD8 /* RxCocoa */; };
+		99D3837F298A1AE900425DD8 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 99D3837E298A1AE900425DD8 /* RxRelay */; };
+		99D38381298A1AE900425DD8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99D38380298A1AE900425DD8 /* RxSwift */; };
+		99D38383298A1EC900425DD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99D38382298A1EC900425DD8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,7 @@
 		9940914C298A094D00DA0542 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9940914F298A094D00DA0542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99409151298A094D00DA0542 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99D38382298A1EC900425DD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D3837D298A1AE900425DD8 /* RxCocoa in Frameworks */,
+				99D38377298A1A7000425DD8 /* FirebaseFirestore in Frameworks */,
+				99D38381298A1AE900425DD8 /* RxSwift in Frameworks */,
+				99D3837F298A1AE900425DD8 /* RxRelay in Frameworks */,
+				99D3837A298A1AA900425DD8 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +68,7 @@
 		99409142298A094C00DA0542 /* MoneyHole */ = {
 			isa = PBXGroup;
 			children = (
+				99D38382298A1EC900425DD8 /* GoogleService-Info.plist */,
 				99409143298A094C00DA0542 /* AppDelegate.swift */,
 				99409145298A094C00DA0542 /* SceneDelegate.swift */,
 				99409147298A094C00DA0542 /* ViewController.swift */,
@@ -83,6 +96,13 @@
 			dependencies = (
 			);
 			name = MoneyHole;
+			packageProductDependencies = (
+				99D38376298A1A7000425DD8 /* FirebaseFirestore */,
+				99D38379298A1AA900425DD8 /* FSCalendar */,
+				99D3837C298A1AE900425DD8 /* RxCocoa */,
+				99D3837E298A1AE900425DD8 /* RxRelay */,
+				99D38380298A1AE900425DD8 /* RxSwift */,
+			);
 			productName = MoneyHole;
 			productReference = 99409140298A094C00DA0542 /* MoneyHole.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +131,11 @@
 				Base,
 			);
 			mainGroup = 99409137298A094C00DA0542;
+			packageReferences = (
+				99D38375298A1A7000425DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				99D38378298A1AA900425DD8 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				99D3837B298A1AE900425DD8 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 99409141298A094C00DA0542 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99409150298A094D00DA0542 /* LaunchScreen.storyboard in Resources */,
+				99D38383298A1EC900425DD8 /* GoogleService-Info.plist in Resources */,
 				9940914D298A094D00DA0542 /* Assets.xcassets in Resources */,
 				9940914B298A094C00DA0542 /* Main.storyboard in Resources */,
 			);
@@ -302,9 +328,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LeeHsss.MoneyHole;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -330,9 +359,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LeeHsss.MoneyHole;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -358,6 +390,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		99D38375298A1A7000425DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		99D38378298A1AA900425DD8 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		99D3837B298A1AE900425DD8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		99D38376298A1A7000425DD8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99D38375298A1A7000425DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		99D38379298A1AA900425DD8 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99D38378298A1AA900425DD8 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		99D3837C298A1AE900425DD8 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99D3837B298A1AE900425DD8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		99D3837E298A1AE900425DD8 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99D3837B298A1AE900425DD8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		99D38380298A1AE900425DD8 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99D3837B298A1AE900425DD8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 99409138298A094C00DA0542 /* Project object */;
 }
