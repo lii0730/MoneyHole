@@ -8,16 +8,34 @@
 import UIKit
 import FirebaseFirestore
 import FSCalendar
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
 
+    //MARK: - IBOutlet
+    @IBOutlet weak var historyTableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
-    let database = Firestore.firestore()
-    let formatter = DateFormatter()
+    
+    let viewModel: MainViewModel = MainViewModel()
+//    let formatter = DateFormatter()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = true
+        
+//        formatter.dateFormat = "yyyy-MM-dd"
+        self.historyTableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.cellId)
+        self.setCalendarView()
+//        self.bindUI()
+    }
+}
+
+extension ViewController {
+    // MARK: - Calendar Init
+    func setCalendarView() {
         self.calendarView.delegate = self
         self.calendarView.dataSource = self
         self.calendarView.scope = .month
@@ -26,38 +44,28 @@ class ViewController: UIViewController {
         self.calendarView.appearance.headerDateFormat = "YYYY년 MM월"
         self.calendarView.appearance.headerTitleAlignment = .left
         
-        formatter.dateFormat = "yyyy-MM-dd"
+        self.calendarView.appearance.titleWeekendColor = .red
+        self.calendarView.appearance.todayColor = .lightGray
         
-//        let docRef = database.document("iosacademy/example")
-//        docRef.getDocument { snp, err in
-//            guard let data = snp?.data(), err == nil else { return }
-//            print(data)
-//        }
-        
-//        writeData(text: "Hello")
+        self.calendarView.select(Date())
     }
-
-    func writeData(path: String) {
-        let docRef = database.document(path).setData([
-            "1" : 1,
-            "2" : 2,
-            "3" : 3
-        ], merge: false)
-        
+    
+    
+    // MARK: - Link Obervable
+    func bindUI() {
+        self.viewModel.dateSubject.onNext(Date())
+        self.viewModel.historySubject.bind(to: self.historyTableView.rx.items(cellIdentifier: HistoryTableViewCell.cellId, cellType: HistoryTableViewCell.self)) { row, history, cell in
+            cell.setHistory(history: history)
+        }.disposed(by: disposeBag)
     }
 }
 
 extension ViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let components = Calendar.current.dateComponents([.day, .month, .year], from: date)
+//        self.viewModel.dateSubject.onNext(date)
         
-//        print("\(components.year)")
-//        print("\(components.month)")
-//        print("\(components.day)")
-        print("Selected:: \(formatter.string(from:date))")
-        
-        
-        writeData(path: "History/" + "\(components.year!)/" + "\(components.year!)-\(components.month!)/" + "\(formatter.string(from:date))")
+//        let history = History(note: "자전거 구매", price: 150_000, isFixed: false, state: 2, date: formatter.string(from: date))
+//        DBUtil.shared.insertHistory(path: "History/2023/2023-2", data: history)
     }
 }
 

@@ -26,7 +26,7 @@ class MainViewModel {
     
     //MARK: - 선택된 날짜에 따른 History 내역 조회
     func getHistory(date: Date) {
-        DBUtil.shared.getData4Histories(date: date) { histories in
+        DBUtil.shared.getHistories(date: date) { histories in
             self.historySubject.onNext(histories)
         }
     }
