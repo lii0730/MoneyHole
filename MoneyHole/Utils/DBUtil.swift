@@ -15,20 +15,11 @@ class DBUtil {
     
     //MARK: - Get
     // 날짜에 해당하는 내역 조회
-    func getData4Histories(date: Date, completion: @escaping ([History]) -> Void) {
+    func getHistories(date: Date, completion: @escaping ([History]) -> Void) {
         var histories: [History] = []
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        
-        let dateComponents = Calendar.current.dateComponents([.day, .month, .year], from: date)
-        guard let year = dateComponents.year else { return }
-        guard let month = dateComponents.month else { return }
-        
-        let dateString = formatter.string(from: date)
-        
-        let query = DBUtil.shared.database.collection("History/\(year)/\(year)-\(month)")
-            .whereField("date", isEqualTo: dateString)
+        let query = DBUtil.shared.database.collection("History/\(date.year)/\(date.yearMonth)")
+            .whereField("date", isEqualTo: date.dateString)
         
         query.getDocuments { snapshot, error in
             guard let docs = snapshot?.documents else { return }
@@ -52,36 +43,71 @@ class DBUtil {
     }
         
     // 입, 출 상태에 카테고리 목록 조회
-    func getData4Categories(state: Int) -> Observable<[Category]> {
-        return Observable.never()
+    func getCategories(state: Int, completion: @escaping ([Category]) -> Void) {
+        var categories: [Category] = []
+        
+        let query = DBUtil.shared.database.collection("Category")
+            .whereField("state", isEqualTo: state)
+        
+        query.getDocuments { snapshot, error in
+            guard let docs = snapshot?.documents else { return }
+            
+            for doc in docs {
+                
+                guard let uuid = doc.get("uuid") as? String else { return }
+                guard let state = doc.get("state") as? Int else { return }
+                guard let name = doc.get("name") as? String else { return }
+                
+                let category = Category(uuid: uuid, state: state, name: name)
+                categories.append(category)
+            }
+            
+            completion(categories)
+        }
     }
     
     //MARK: - Insert
     // 입,출 내역 입력
-    func insertData4History(path: String, data: History) {
-        
+    func insertHistory(path: String, data: History) {
+        let newDoc = DBUtil.shared.database.collection(path).document()
+        let model = History(uuid: newDoc.documentID, note: data.note, price: data.price, isFixed: data.isFixed, state: data.state, date: data.date)
+        newDoc.setData([
+            "uuid" : model.uuid ?? newDoc.documentID,
+            "note" : model.note,
+            "price" : model.price,
+            "isFixed" : model.isFixed,
+            "state" : model.state,
+            "date" : model.date
+        ], merge: true)
     }
     
     // 카테고리 추가
-    func insertData4Category(path: String, data: Category) {
+    func insertCategory(path: String, data: Category) {
+        let newDoc = DBUtil.shared.database.collection(path).document()
+        let model = Category(uuid: newDoc.documentID, state: data.state, name: data.name)
+        newDoc.setData([
+            "uuid" : model.uuid ?? newDoc.documentID,
+            "state" : model.state,
+            "name" : model.name
+        ], merge: true)
         
     }
     
     //MARK: - Update
-    func updateData4History(path: String, data: History) {
+    func updateHistory(path: String, data: History) {
         
     }
     
-    func updateData4Category(path: String, data: Category) {
+    func updateCategory(path: String, data: Category) {
         
     }
     
     //MARK: - Delete
-    func deleteData4History(path: String, data: History) {
+    func deleteHistory(path: String, data: History) {
         
     }
     
-    func deleteData4Category(path: String, data: Category) {
+    func deleteCategory(path: String, data: Category) {
         
     }
         
