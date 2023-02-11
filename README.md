@@ -9,6 +9,7 @@
   - Firebase Cloud Stroe (DB)
   - FSCalendar
   - RxSwift
+  - RxCocoa
   - MVVM
 
 
