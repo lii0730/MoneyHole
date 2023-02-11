@@ -18,7 +18,7 @@ class DBUtil {
     func getHistories(date: Date, completion: @escaping ([History]) -> Void) {
         var histories: [History] = []
         
-        let query = DBUtil.shared.database.collection("History/\(date.year)/\(date.yearMonth)")
+        let query = self.database.collection("History/\(date.year)/\(date.yearMonth)")
             .whereField("date", isEqualTo: date.dateString)
         
         query.getDocuments { snapshot, error in
@@ -46,7 +46,7 @@ class DBUtil {
     func getCategories(state: Int, completion: @escaping ([Category]) -> Void) {
         var categories: [Category] = []
         
-        let query = DBUtil.shared.database.collection("Category")
+        let query = self.database.collection("Category")
             .whereField("state", isEqualTo: state)
         
         query.getDocuments { snapshot, error in
@@ -66,10 +66,36 @@ class DBUtil {
         }
     }
     
+    /// state: 1 이면 해당 월에 총 수입 조회
+    /// state: 2 이면 해당 월에 총 지출 조회
+    func getTotalMonthly(date: Date, completion: @escaping (Int, Int) -> Void) {
+        var incomeTotal: Int = 0
+        var spendTotal: Int = 0
+        
+        let query = self.database.collection("History/\(date.year)/\(date.yearMonth)")
+        
+        query.getDocuments { snapshot, error in
+            guard let docs = snapshot?.documents else { return }
+            
+            for doc in docs {
+                guard let state = doc.get("state") as? Int else { return }
+                guard let price = doc.get("price") as? Int else { return }
+                
+                if state == 1 {
+                    incomeTotal += price
+                } else {
+                    spendTotal += price
+                }
+            }
+            
+            completion(incomeTotal, -spendTotal)
+        }
+    }
+    
     //MARK: - Insert
     // 입,출 내역 입력
     func insertHistory(path: String, data: History) {
-        let newDoc = DBUtil.shared.database.collection(path).document()
+        let newDoc = self.database.collection(path).document()
         let model = History(uuid: newDoc.documentID, note: data.note, price: data.price, isFixed: data.isFixed, state: data.state, date: data.date)
         newDoc.setData([
             "uuid" : model.uuid ?? newDoc.documentID,
@@ -83,7 +109,7 @@ class DBUtil {
     
     // 카테고리 추가
     func insertCategory(path: String, data: Category) {
-        let newDoc = DBUtil.shared.database.collection(path).document()
+        let newDoc = self.database.collection(path).document()
         let model = Category(uuid: newDoc.documentID, state: data.state, name: data.name)
         newDoc.setData([
             "uuid" : model.uuid ?? newDoc.documentID,
