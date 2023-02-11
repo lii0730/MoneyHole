@@ -15,4 +15,5 @@ struct History {
     let isFixed: Bool // 고정지출 여부
     let state: Int // 입금: 1 , 출금: 2
     let date: String
+//    let category: Category
 }
