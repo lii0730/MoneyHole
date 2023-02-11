@@ -45,7 +45,6 @@ class HistoryTableViewCell: UITableViewCell {
         self.noteLabel.textAlignment = .left
         
         self.priceLabel.translatesAutoresizingMaskIntoConstraints = false
-//        self.priceLabel.leadingAnchor.constraint(equalTo: self.noteLabel.trailingAnchor, constant: 0).isActive = true
         self.priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         self.priceLabel.widthAnchor.constraint(equalToConstant: 120).isActive = true
         self.priceLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -62,7 +61,7 @@ class HistoryTableViewCell: UITableViewCell {
             self.noteLabel.textColor = .red
             self.priceLabel.textColor = .red
         }
-        self.categoryLabel.text = "Test"
+        self.categoryLabel.text = history.categoryName
         self.noteLabel.text = history.note
         self.priceLabel.text = history.price.currency
         

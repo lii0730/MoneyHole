@@ -32,8 +32,9 @@ class DBUtil {
                 guard let state = doc.get("state") as? Int else { return }
                 guard let isFixed = doc.get("isFixed") as? Bool else { return }
                 guard let date = doc.get("date") as? String else { return }
+                guard let categoryName = doc.get("categoryName") as? String else { return }
                 
-                let history = History(uuid: uuid, note: note, price: price, isFixed: isFixed, state: state, date: date)
+                let history = History(uuid: uuid, note: note, price: price, isFixed: isFixed, state: state, date: date, categoryName: categoryName)
                 histories.append(history)
             }
             
@@ -96,14 +97,15 @@ class DBUtil {
     // 입,출 내역 입력
     func insertHistory(path: String, data: History) {
         let newDoc = self.database.collection(path).document()
-        let model = History(uuid: newDoc.documentID, note: data.note, price: data.price, isFixed: data.isFixed, state: data.state, date: data.date)
+        let model = History(uuid: newDoc.documentID, note: data.note, price: data.price, isFixed: data.isFixed, state: data.state, date: data.date, categoryName: data.categoryName)
         newDoc.setData([
             "uuid" : model.uuid ?? newDoc.documentID,
             "note" : model.note,
             "price" : model.price,
             "isFixed" : model.isFixed,
             "state" : model.state,
-            "date" : model.date
+            "date" : model.date,
+            "categoryName": model.categoryName
         ], merge: true)
     }
     
@@ -139,52 +141,52 @@ class DBUtil {
         
 }
 extension DBUtil {
-    func writeData(path: String, date: String) {
-        let newDoc = DBUtil.shared.database.collection(path).document()
-        let model = History(uuid: newDoc.documentID, note: "식비", price: 15000, isFixed: false, state: 1, date: date)
-        newDoc.setData([
-            "uuid" : model.uuid,
-            "note" : model.note,
-            "price" : model.price,
-            "isFixed" : model.isFixed,
-            "state" : model.state,
-            "date" : model.date
-        ], merge: true)
-        
-    }
+//    func writeData(path: String, date: String) {
+//        let newDoc = DBUtil.shared.database.collection(path).document()
+//        let model = History(uuid: newDoc.documentID, note: "식비", price: 15000, isFixed: false, state: 1, date: date)
+//        newDoc.setData([
+//            "uuid" : model.uuid,
+//            "note" : model.note,
+//            "price" : model.price,
+//            "isFixed" : model.isFixed,
+//            "state" : model.state,
+//            "date" : model.date
+//        ], merge: true)
+//
+//    }
     
-    func writeData2(path: String) {
-        let newDoc = DBUtil.shared.database.collection(path).document()
-        let model = Category(uuid: newDoc.documentID, state: 1, name: "월급")
-        newDoc.setData([
-            "uuid" : model.uuid,
-            "state" : model.state,
-            "name" : model.name
-        ], merge: true)
-    }
+//    func writeData2(path: String) {
+//        let newDoc = DBUtil.shared.database.collection(path).document()
+//        let model = Category(uuid: newDoc.documentID, state: 1, name: "월급")
+//        newDoc.setData([
+//            "uuid" : model.uuid,
+//            "state" : model.state,
+//            "name" : model.name
+//        ], merge: true)
+//    }
     
-    func readData() {
-        let query = DBUtil.shared.database.collection("History/2023/2023-2").whereField("date", isEqualTo: "2023-02-01")
-        query.getDocuments { snapshot, error in
-            let docs = snapshot!.documents
-            
-            
-            var histories: [History] = []
-            for doc in docs {
-                
-                guard let uuid = doc.get("uuid") as? String else { return }
-                guard let note = doc.get("note") as? String else { return }
-                guard let price = doc.get("price") as? Int else { return }
-                guard let state = doc.get("state") as? Int else { return }
-                guard let isFixed = doc.get("isFixed") as? Bool else { return }
-                guard let date = doc.get("date") as? String else { return }
-                
-                let history = History(uuid: uuid, note: note, price: price, isFixed: isFixed, state: state, date: date)
-                histories.append(history)
-                
-            }
-            
-            print(histories)
-        }
-    }
+//    func readData() {
+//        let query = DBUtil.shared.database.collection("History/2023/2023-2").whereField("date", isEqualTo: "2023-02-01")
+//        query.getDocuments { snapshot, error in
+//            let docs = snapshot!.documents
+//
+//
+//            var histories: [History] = []
+//            for doc in docs {
+//
+//                guard let uuid = doc.get("uuid") as? String else { return }
+//                guard let note = doc.get("note") as? String else { return }
+//                guard let price = doc.get("price") as? Int else { return }
+//                guard let state = doc.get("state") as? Int else { return }
+//                guard let isFixed = doc.get("isFixed") as? Bool else { return }
+//                guard let date = doc.get("date") as? String else { return }
+//
+//                let history = History(uuid: uuid, note: note, price: price, isFixed: isFixed, state: state, date: date)
+//                histories.append(history)
+//
+//            }
+//
+//            print(histories)
+//        }
+//    }
 }
