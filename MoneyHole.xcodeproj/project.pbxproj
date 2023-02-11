@@ -13,15 +13,16 @@
 		9940914B298A094C00DA0542 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99409149298A094C00DA0542 /* Main.storyboard */; };
 		9940914D298A094D00DA0542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9940914C298A094D00DA0542 /* Assets.xcassets */; };
 		99409150298A094D00DA0542 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9940914E298A094D00DA0542 /* LaunchScreen.storyboard */; };
+		998075B229977FE800E6ACDE /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998075B129977FE800E6ACDE /* Int+.swift */; };
 		999D6C32298B76BB009D88C0 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D6C31298B76BB009D88C0 /* HistoryTableViewCell.swift */; };
 		999D6C3A298B8EEB009D88C0 /* MoneyHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D6C39298B8EEB009D88C0 /* MoneyHoleTests.swift */; };
 		999D6C42298BAF41009D88C0 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D6C41298BAF41009D88C0 /* Date+.swift */; };
+		999D6C46298BB5EE009D88C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 999D6C45298BB5EE009D88C0 /* GoogleService-Info.plist */; };
 		99D38377298A1A7000425DD8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 99D38376298A1A7000425DD8 /* FirebaseFirestore */; };
 		99D3837A298A1AA900425DD8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 99D38379298A1AA900425DD8 /* FSCalendar */; };
 		99D3837D298A1AE900425DD8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 99D3837C298A1AE900425DD8 /* RxCocoa */; };
 		99D3837F298A1AE900425DD8 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 99D3837E298A1AE900425DD8 /* RxRelay */; };
 		99D38381298A1AE900425DD8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99D38380298A1AE900425DD8 /* RxSwift */; };
-		99D38383298A1EC900425DD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99D38382298A1EC900425DD8 /* GoogleService-Info.plist */; };
 		99D38386298A35F100425DD8 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D38385298A35F100425DD8 /* History.swift */; };
 		99D38389298A3B2200425DD8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99D38388298A3B2200425DD8 /* FirebaseFirestoreSwift */; };
 		99D3838D298A3E3E00425DD8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D3838C298A3E3E00425DD8 /* Category.swift */; };
@@ -49,11 +50,12 @@
 		9940914C298A094D00DA0542 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9940914F298A094D00DA0542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99409151298A094D00DA0542 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		998075B129977FE800E6ACDE /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		999D6C31298B76BB009D88C0 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		999D6C37298B8EEA009D88C0 /* MoneyHoleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyHoleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		999D6C39298B8EEB009D88C0 /* MoneyHoleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHoleTests.swift; sourceTree = "<group>"; };
 		999D6C41298BAF41009D88C0 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		99D38382298A1EC900425DD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		999D6C45298BB5EE009D88C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99D38385298A35F100425DD8 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		99D3838C298A3E3E00425DD8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		99D3838E298A587300425DD8 /* DBUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUtil.swift; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 				99D3838B298A3DD400425DD8 /* ViewModel */,
 				99D3838A298A3DBF00425DD8 /* Utils */,
 				999D6C40298BAF1C009D88C0 /* Extension */,
-				99D38382298A1EC900425DD8 /* GoogleService-Info.plist */,
+				999D6C45298BB5EE009D88C0 /* GoogleService-Info.plist */,
 				99409143298A094C00DA0542 /* AppDelegate.swift */,
 				99409145298A094C00DA0542 /* SceneDelegate.swift */,
 				99409147298A094C00DA0542 /* ViewController.swift */,
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				999D6C41298BAF41009D88C0 /* Date+.swift */,
+				998075B129977FE800E6ACDE /* Int+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -276,7 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99409150298A094D00DA0542 /* LaunchScreen.storyboard in Resources */,
-				99D38383298A1EC900425DD8 /* GoogleService-Info.plist in Resources */,
+				999D6C46298BB5EE009D88C0 /* GoogleService-Info.plist in Resources */,
 				9940914D298A094D00DA0542 /* Assets.xcassets in Resources */,
 				9940914B298A094C00DA0542 /* Main.storyboard in Resources */,
 			);
@@ -300,6 +303,7 @@
 				99D38391298A59B800425DD8 /* MainViewModel.swift in Sources */,
 				99409148298A094C00DA0542 /* ViewController.swift in Sources */,
 				99D38393298A59D000425DD8 /* AddViewModel.swift in Sources */,
+				998075B229977FE800E6ACDE /* Int+.swift in Sources */,
 				99D3838F298A587300425DD8 /* DBUtil.swift in Sources */,
 				99D3838D298A3E3E00425DD8 /* Category.swift in Sources */,
 				99409144298A094C00DA0542 /* AppDelegate.swift in Sources */,

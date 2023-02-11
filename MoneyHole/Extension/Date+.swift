@@ -25,4 +25,11 @@ extension Date {
         
         return formatter.string(from: self)
     }
+    
+    var navigationTitle: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월"
+        
+        return formatter.string(from: self)
+    }
 }
