@@ -31,6 +31,20 @@ class ViewController: UIViewController {
         self.setCalendarView()
         self.bindUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.viewModel.getMonthTotalSubject.onNext(self.calendarView.currentPage)
+        self.viewModel.getHistorySubject.onNext(self.calendarView.selectedDate ?? Date.now)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddVC" {
+            guard let AddVC = segue.destination as? AddViewController else { return }
+            AddVC.selectedDate = self.calendarView.selectedDate!
+        }
+    }
 }
 
 extension ViewController {
