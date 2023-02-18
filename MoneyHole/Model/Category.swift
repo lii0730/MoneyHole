@@ -11,5 +11,6 @@ import Foundation
 struct Category {
     var uuid: String? // uuid
     let state: Int // 1, 2 [입, 출]
+    var isFixed: Bool
     let name: String // 카테고리 이름
 }
