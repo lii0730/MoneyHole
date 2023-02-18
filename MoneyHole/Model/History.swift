@@ -16,4 +16,5 @@ struct History {
     let state: Int // 입금: 1 , 출금: 2
     let date: String
     let categoryName: String
+    let regTime: TimeInterval
 }
