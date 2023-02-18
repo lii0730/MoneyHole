@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MoneyHole" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="ViewController" customModule="MoneyHole" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,7 +97,13 @@
                             <constraint firstItem="opF-M4-sEP" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="g8g-Kz-HY8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oO1-kh-7qV"/>
+                    <navigationItem key="navigationItem" id="oO1-kh-7qV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UKZ-xF-yAe">
+                            <connections>
+                                <segue destination="avN-zn-fr1" kind="presentation" identifier="AddVC" modalPresentationStyle="fullScreen" id="qfg-ty-9dA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="XFw-Oi-qyM" id="dPT-Nq-RUU"/>
                         <outlet property="historyTableView" destination="opF-M4-sEP" id="kKy-j1-fmB"/>
@@ -108,6 +114,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-196.18320610687022" y="-511.26760563380282"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="a9P-Hg-f3X">
+            <objects>
+                <viewController storyboardIdentifier="AddVC" id="avN-zn-fr1" customClass="AddViewController" customModule="MoneyHole" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="edn-FR-Puf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hat-8e-pi4">
+                                <rect key="frame" x="20.000000000000004" y="79" width="46.333333333333343" height="34.333333333333343"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="closeHistory:" destination="avN-zn-fr1" eventType="touchUpInside" id="x8s-FL-gM9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDM-x9-Hr2">
+                                <rect key="frame" x="325.33333333333331" y="79" width="47.666666666666686" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="checkmark" catalog="system"/>
+                                <connections>
+                                    <action selector="saveHistory:" destination="avN-zn-fr1" eventType="touchUpInside" id="pdh-rO-Qoe"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="금액을 입력해주세요." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w2P-gf-jbV">
+                                <rect key="frame" x="20" y="143.33333333333334" width="353" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hxh-dc-afu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGZ-OC-nzN">
+                                <rect key="frame" x="20" y="223.33333333333337" width="353" height="216"/>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="메모를 입력해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uce-2C-cLM">
+                                <rect key="frame" x="20" y="459.33333333333331" width="353" height="59.999999999999943"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="egK-95-0ZK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RO7-Ea-y8U"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pGZ-OC-nzN" firstAttribute="leading" secondItem="RO7-Ea-y8U" secondAttribute="leading" constant="20" id="1Dw-Zx-fcb"/>
+                            <constraint firstItem="Uce-2C-cLM" firstAttribute="top" secondItem="pGZ-OC-nzN" secondAttribute="bottom" constant="20" id="1UF-oq-YAb"/>
+                            <constraint firstItem="WDM-x9-Hr2" firstAttribute="top" secondItem="RO7-Ea-y8U" secondAttribute="top" constant="20" id="6cn-Rc-786"/>
+                            <constraint firstItem="RO7-Ea-y8U" firstAttribute="trailing" secondItem="WDM-x9-Hr2" secondAttribute="trailing" constant="20" id="7bl-g5-5BT"/>
+                            <constraint firstItem="Hat-8e-pi4" firstAttribute="leading" secondItem="RO7-Ea-y8U" secondAttribute="leading" constant="20" id="7fD-5D-lOk"/>
+                            <constraint firstItem="w2P-gf-jbV" firstAttribute="top" secondItem="Hat-8e-pi4" secondAttribute="bottom" constant="30" id="KRX-ZT-siD"/>
+                            <constraint firstItem="Hat-8e-pi4" firstAttribute="top" secondItem="RO7-Ea-y8U" secondAttribute="top" constant="20" id="PW1-0Z-ELd"/>
+                            <constraint firstItem="RO7-Ea-y8U" firstAttribute="trailing" secondItem="w2P-gf-jbV" secondAttribute="trailing" constant="20" id="VS3-Lv-kAl"/>
+                            <constraint firstItem="w2P-gf-jbV" firstAttribute="leading" secondItem="RO7-Ea-y8U" secondAttribute="leading" constant="20" id="VWs-1f-WKf"/>
+                            <constraint firstItem="pGZ-OC-nzN" firstAttribute="top" secondItem="w2P-gf-jbV" secondAttribute="bottom" constant="20" id="X1B-yv-UKs"/>
+                            <constraint firstItem="pGZ-OC-nzN" firstAttribute="trailing" secondItem="RO7-Ea-y8U" secondAttribute="trailing" constant="-20" id="hQZ-D7-tS5"/>
+                            <constraint firstItem="Uce-2C-cLM" firstAttribute="leading" secondItem="RO7-Ea-y8U" secondAttribute="leading" constant="20" id="kom-eV-bgS"/>
+                            <constraint firstItem="RO7-Ea-y8U" firstAttribute="trailing" secondItem="Uce-2C-cLM" secondAttribute="trailing" constant="20" id="xsU-2t-jjl"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Qde-5V-Qb8"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="memoTextField" destination="Uce-2C-cLM" id="BWx-Mo-1uT"/>
+                        <outlet property="pickerView" destination="pGZ-OC-nzN" id="QeP-hn-6tE"/>
+                        <outlet property="priceTextField" destination="w2P-gf-jbV" id="aum-Sl-YZk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e05-lV-pnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="673" y="-511"/>
         </scene>
         <!--설정-->
         <scene sceneID="KL2-vm-ef0">
@@ -162,8 +242,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="wonsign.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
