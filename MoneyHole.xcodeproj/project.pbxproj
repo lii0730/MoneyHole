@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		991E0A5929A0C7CE00BECC18 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E0A5829A0C7CE00BECC18 /* Path.swift */; };
 		99409144298A094C00DA0542 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99409143298A094C00DA0542 /* AppDelegate.swift */; };
 		99409146298A094C00DA0542 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99409145298A094C00DA0542 /* SceneDelegate.swift */; };
 		99409148298A094C00DA0542 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99409147298A094C00DA0542 /* ViewController.swift */; };
 		9940914B298A094C00DA0542 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99409149298A094C00DA0542 /* Main.storyboard */; };
 		9940914D298A094D00DA0542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9940914C298A094D00DA0542 /* Assets.xcassets */; };
 		99409150298A094D00DA0542 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9940914E298A094D00DA0542 /* LaunchScreen.storyboard */; };
+		997029A3299A550500B62690 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997029A2299A550500B62690 /* AddViewController.swift */; };
 		998075B229977FE800E6ACDE /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998075B129977FE800E6ACDE /* Int+.swift */; };
 		999D6C32298B76BB009D88C0 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D6C31298B76BB009D88C0 /* HistoryTableViewCell.swift */; };
 		999D6C3A298B8EEB009D88C0 /* MoneyHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D6C39298B8EEB009D88C0 /* MoneyHoleTests.swift */; };
@@ -42,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		991E0A5829A0C7CE00BECC18 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		99409140298A094C00DA0542 /* MoneyHole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyHole.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99409143298A094C00DA0542 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99409145298A094C00DA0542 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		9940914C298A094D00DA0542 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9940914F298A094D00DA0542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99409151298A094D00DA0542 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		997029A2299A550500B62690 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		998075B129977FE800E6ACDE /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		999D6C31298B76BB009D88C0 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		999D6C37298B8EEA009D88C0 /* MoneyHoleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyHoleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +122,7 @@
 				99409143298A094C00DA0542 /* AppDelegate.swift */,
 				99409145298A094C00DA0542 /* SceneDelegate.swift */,
 				99409147298A094C00DA0542 /* ViewController.swift */,
+				997029A2299A550500B62690 /* AddViewController.swift */,
 				99409149298A094C00DA0542 /* Main.storyboard */,
 				9940914C298A094D00DA0542 /* Assets.xcassets */,
 				9940914E298A094D00DA0542 /* LaunchScreen.storyboard */,
@@ -171,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				99D3838E298A587300425DD8 /* DBUtil.swift */,
+				991E0A5829A0C7CE00BECC18 /* Path.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 			files = (
 				999D6C32298B76BB009D88C0 /* HistoryTableViewCell.swift in Sources */,
 				99D38391298A59B800425DD8 /* MainViewModel.swift in Sources */,
+				997029A3299A550500B62690 /* AddViewController.swift in Sources */,
 				99409148298A094C00DA0542 /* ViewController.swift in Sources */,
 				99D38393298A59D000425DD8 /* AddViewModel.swift in Sources */,
 				998075B229977FE800E6ACDE /* Int+.swift in Sources */,
@@ -308,6 +315,7 @@
 				99D3838D298A3E3E00425DD8 /* Category.swift in Sources */,
 				99409144298A094C00DA0542 /* AppDelegate.swift in Sources */,
 				999D6C42298BAF41009D88C0 /* Date+.swift in Sources */,
+				991E0A5929A0C7CE00BECC18 /* Path.swift in Sources */,
 				99409146298A094C00DA0542 /* SceneDelegate.swift in Sources */,
 				99D38386298A35F100425DD8 /* History.swift in Sources */,
 			);
